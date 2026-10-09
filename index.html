@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Granex Kitchen (website concept)</title>
+<meta name="description" content="Website concept for Granex Kitchen in Patchogue, NY: countertops, cabinets, kitchen and bathroom remodels, custom tables and financing. Rated 4.9 on Google.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bone:#f4f1ec;--stone:#e6e0d7;--honed:#d3cbbf;--pebble:#9c9488;
+ --walnut:#5e3b26;--walnut-l:#8a5a3b;--brass:#b08d57;--brass-d:#7a5c2c;
+ --char:#1f1e1c;--char-2:#2b2a27;--ink:#1f1e1c;--muted:#5a554e;
+ --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:72px;--s8:112px;
+ --wrap:1240px;
+ --display:"Syne","Arial Black",system-ui,sans-serif;--body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;font-family:var(--body);font-size:17.5px;line-height:1.6;color:var(--ink);background:var(--bone);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brass-d);outline-offset:3px}
+.dark :focus-visible{outline-color:var(--brass)}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--s4)}
+.skip{position:absolute;left:-999px;top:0;background:var(--char);color:#fff;padding:var(--s2) var(--s3);z-index:99}
+.skip:focus{left:var(--s3);top:var(--s3)}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;line-height:1.02;letter-spacing:-.02em}
+p{margin:0 0 var(--s3)}
+.label{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-d);margin:0 0 var(--s3);display:flex;align-items:center;gap:var(--s3)}
+.label::before{content:"";width:32px;height:1px;background:currentColor}
+.dark .label{color:var(--brass)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:52px;padding:0 var(--s4);font-family:var(--body);font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn-dark{background:var(--char);color:var(--bone)}.btn-dark:hover{background:var(--walnut)}
+.btn-line{border-color:var(--char);color:var(--char);background:transparent}.btn-line:hover{background:var(--char);color:var(--bone)}
+.btn-brass{background:var(--brass);color:var(--char)}.btn-brass:hover{background:#c7a36a}
+.btn svg{width:18px;height:18px}
+
+.concept{background:var(--char);color:#e9e4dc;font-size:.82rem;text-align:center;padding:var(--s2) var(--s3)}
+.concept a{color:#e3c58f}
+
+header.site{position:sticky;top:0;z-index:40;background:rgba(244,241,236,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--honed)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);min-height:76px}
+.brand{display:flex;align-items:center;gap:var(--s3);text-decoration:none}
+.brand-mark{width:40px;height:40px}
+.brand b{font-family:var(--display);font-weight:800;font-size:1.45rem;letter-spacing:.06em;display:block;line-height:1}
+.brand small{display:block;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+nav.main ul{list-style:none;display:flex;gap:var(--s1);margin:0;padding:0}
+nav.main a{display:flex;align-items:center;min-height:44px;padding:0 var(--s3);text-decoration:none;font-weight:500;font-size:.96rem;position:relative}
+nav.main a::after{content:"";position:absolute;left:var(--s3);right:var(--s3);bottom:8px;height:1px;background:var(--brass-d);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+nav.main a:hover::after{transform:scaleX(1)}
+.hdr-call{font-weight:600;text-decoration:none;display:flex;align-items:center;gap:var(--s2);min-height:44px;padding:0 var(--s3);border:1.5px solid var(--char)}
+.hdr-call:hover{background:var(--char);color:var(--bone)}
+.menu-btn{display:none;min-width:48px;min-height:48px;background:none;border:1.5px solid var(--char);cursor:pointer;align-items:center;justify-content:center}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--char);position:relative}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--char)}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+
+/* hero */
+.hero{padding:var(--s7) 0 var(--s6);position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:var(--s6);align-items:center}
+.hero h1{font-size:clamp(2.6rem,5.6vw,5rem);font-weight:800;line-height:.98}
+.hero h1 .thin{font-weight:500;color:var(--walnut)}
+.hero .lede{font-size:1.2rem;max-width:34ch;color:var(--muted);margin:var(--s4) 0 var(--s5)}
+.actions{display:flex;flex-wrap:wrap;gap:var(--s3)}
+.hero-art{position:relative;aspect-ratio:1/0.92;background:var(--stone);clip-path:polygon(0 0,92% 0,100% 8%,100% 100%,8% 100%,0 92%)}
+.hero-art svg{width:100%;height:100%;display:block}
+.tag{position:absolute;background:var(--bone);border:1px solid var(--honed);font-size:.78rem;padding:var(--s1) var(--s2);font-weight:600;letter-spacing:.04em}
+.tag::before{content:"";position:absolute;width:24px;height:1px;background:var(--char);top:50%}
+.tag.l::before{right:100%}.tag.r::before{left:100%}
+
+.proof{border-top:1px solid var(--honed);border-bottom:1px solid var(--honed);background:var(--stone)}
+.proof .wrap{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:0}
+.proof div.item{padding:var(--s4) var(--s4);border-left:1px solid var(--honed)}
+.proof div.item:first-child{border-left:0;padding-left:0}
+.proof strong{font-family:var(--display);font-size:2.4rem;font-weight:700;display:block;line-height:1}
+.proof span{font-size:.92rem;color:var(--muted)}
+.stars{display:flex;gap:2px;margin-top:var(--s2)}
+.stars svg{width:16px;height:16px;fill:var(--brass-d)}
+
+section{scroll-margin-top:90px}
+.sec{padding:var(--s8) 0}
+
+/* services spec sheet */
+.spec{display:grid;grid-template-columns:.8fr 1.4fr;gap:var(--s7)}
+.spec-intro{position:sticky;top:120px;align-self:start}
+.spec-intro h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.spec-intro p{color:var(--muted);margin-top:var(--s4);max-width:36ch}
+.rows{border-top:2px solid var(--char)}
+.row{display:grid;grid-template-columns:56px 1fr 120px;gap:var(--s4);padding:var(--s5) 0;border-bottom:1px solid var(--honed);align-items:start}
+.row .no{font-family:var(--display);font-weight:600;color:var(--brass-d);font-size:.95rem;padding-top:6px}
+.row h3{font-size:1.6rem;margin-bottom:var(--s2)}
+.row p{color:var(--muted);margin:0;max-width:52ch}
+.swatch{width:120px;height:72px;clip-path:polygon(0 0,88% 0,100% 18%,100% 100%,12% 100%,0 82%)}
+.row:hover .swatch{transform:translateY(-3px)}
+.swatch{transition:transform .3s}
+
+/* visualizer */
+.dark{background:var(--char);color:#efebe4}
+.viz-head{display:flex;justify-content:space-between;align-items:end;gap:var(--s5);margin-bottom:var(--s6);flex-wrap:wrap}
+.viz-head h2{font-size:clamp(2.2rem,4vw,3.4rem);max-width:16ch}
+.viz-head p{max-width:42ch;color:#c9c2b7;margin:0}
+.viz{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s5);align-items:start}
+.viz-stage{background:#2e2c29;border:1px solid #3d3a35;padding:var(--s3)}
+.viz-stage svg{width:100%;height:auto;display:block}
+.viz-read{display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;padding:var(--s3) var(--s2) var(--s1);font-size:.95rem;color:#d9d2c6}
+.viz-read b{color:#fff}
+fieldset{border:0;margin:0 0 var(--s5);padding:0}
+legend{font-family:var(--display);font-weight:600;font-size:1.15rem;margin-bottom:var(--s3);padding:0}
+.chips{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s2)}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chip label{display:flex;align-items:center;gap:var(--s3);min-height:56px;padding:var(--s2) var(--s3);border:1px solid #4a4640;cursor:pointer;font-size:.95rem;line-height:1.25;transition:border-color .2s,background .2s}
+.chip label small{display:block;color:#b3ab9f;font-size:.8rem}
+.chip input:checked+label{border-color:var(--brass);background:#36332e}
+.chip input:focus-visible+label{outline:3px solid var(--brass);outline-offset:2px}
+.dot{width:30px;height:30px;flex:none;border:1px solid rgba(255,255,255,.25)}
+.viz-cta{margin-top:var(--s2)}
+.sample-note{font-size:.85rem;color:#b9b1a5;margin-top:var(--s3)}
+
+/* add-on booking */
+.addon{background:var(--stone)}
+.addon-top{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);margin-bottom:var(--s6);align-items:end}
+.addon-top h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.flag{display:inline-block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border:1.5px solid var(--char);padding:var(--s1) var(--s2);margin-bottom:var(--s3)}
+.price{font-family:var(--display);font-size:2rem;font-weight:700}
+.price small{font-family:var(--body);font-size:.95rem;font-weight:500;color:var(--muted)}
+.incl{list-style:none;padding:0;margin:var(--s3) 0 0;display:grid;gap:var(--s2)}
+.incl li{padding-left:var(--s4);position:relative}
+.incl li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:1.5px;background:var(--brass-d)}
+.booker{background:var(--bone);border:1px solid var(--honed);display:grid;grid-template-columns:1fr 1fr;}
+.bk-col{padding:var(--s5)}
+.bk-col+.bk-col{border-left:1px solid var(--honed)}
+.step-t{font-family:var(--display);font-weight:600;font-size:1.1rem;margin-bottom:var(--s3);display:flex;gap:var(--s2);align-items:baseline}
+.step-t i{font-style:normal;color:var(--brass-d);font-size:.9rem}
+.days{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s2);margin-bottom:var(--s4)}
+.days button,.slots button{font-family:var(--body);background:#fff;border:1px solid var(--honed);min-height:56px;cursor:pointer;font-size:.88rem;line-height:1.2;color:var(--ink);padding:var(--s1)}
+.days button b{display:block;font-family:var(--display);font-size:1.15rem}
+.days button[aria-pressed=true],.slots button[aria-pressed=true]{background:var(--char);color:var(--bone);border-color:var(--char)}
+.days button:hover,.slots button:hover{border-color:var(--char)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2)}
+.slots button{min-height:48px}
+.slots button:disabled{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+.picked{margin-top:var(--s4);padding:var(--s3);background:var(--stone);font-size:.95rem}
+
+/* forms */
+.field{display:grid;gap:var(--s1);margin-bottom:var(--s3)}
+.field label{font-weight:600;font-size:.92rem}
+.field input,.field select,.field textarea{font:inherit;font-size:1rem;padding:var(--s2) var(--s3);min-height:50px;border:1px solid #b6ad9f;background:#fff;color:var(--ink);border-radius:0;width:100%}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--char)}
+.field.err input,.field.err select,.field.err textarea{border-color:#a3271b}
+.errmsg{color:#a3271b;font-size:.85rem;display:none}
+.field.err .errmsg{display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.demo-note{font-size:.85rem;color:var(--muted);margin-top:var(--s2)}
+.done{padding:var(--s5);border:1.5px solid var(--char);background:#fff}
+.done h3{font-size:1.6rem;margin-bottom:var(--s2)}
+.sample-feat{margin-top:var(--s4);font-size:.9rem;color:var(--muted);border-left:3px solid var(--brass-d);padding-left:var(--s3)}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:1fr 1.25fr;gap:var(--s5);align-items:stretch}
+.quote{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--s7) + var(--s1)) var(--s5) var(--s5);margin:0}
+.quote.q1{background:var(--walnut);color:#f6efe6}
+.quote.q2{background:#fff;border:1px solid var(--honed)}
+.quote blockquote{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,2.6vw,2.3rem);line-height:1.12;letter-spacing:-.015em}
+.quote figcaption{margin-top:var(--s4);font-size:.92rem}
+.q1 figcaption{color:#e6d8c6}
+.qmark{position:absolute;top:var(--s4);left:var(--s5);width:36px;height:28px}
+.rev-head{display:flex;justify-content:space-between;align-items:end;gap:var(--s4);margin-bottom:var(--s5);flex-wrap:wrap}
+.rev-head h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid var(--char)}
+.visit>div{padding:var(--s5) var(--s4) var(--s5) 0}
+.visit>div+div{padding-left:var(--s4);border-left:1px solid var(--honed)}
+.visit h3{font-size:1.25rem;margin-bottom:var(--s3)}
+.hours{width:100%;border-collapse:collapse;font-size:.98rem}
+.hours td{padding:var(--s2) 0;border-bottom:1px solid var(--honed)}
+.hours td+td{text-align:right}
+.visit a{font-weight:600}
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--s7);align-items:start}
+.contact h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.contact .intro p{color:var(--muted);margin-top:var(--s4)}
+.formbox{background:#fff;border:1px solid var(--honed);padding:var(--s5)}
+
+footer{background:var(--char);color:#d9d2c6;padding:var(--s7) 0 var(--s6);font-size:.95rem}
+.ft{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:var(--s5);padding-bottom:var(--s5);border-bottom:1px solid #3d3a35}
+footer .brand b{color:#fff}footer .brand small{color:#b3ab9f}
+footer a{color:#efe3cc}
+.disc{font-size:.85rem;color:#b9b1a5;margin-top:var(--s4);max-width:100ch}
+.mcall{display:none}
+
+@media (max-width:1080px){
+ nav.main ul{gap:0}nav.main a{padding:0 var(--s2)}
+}
+@media (max-width:960px){
+ .menu-btn{display:inline-flex}
+ nav.main{position:absolute;left:0;right:0;top:100%;background:var(--bone);border-bottom:1px solid var(--honed);display:none}
+ nav.main.open{display:block}
+ nav.main ul{flex-direction:column;padding:var(--s2) var(--s4) var(--s4)}
+ nav.main a{min-height:52px;border-bottom:1px solid var(--stone)}
+ .hero-grid,.spec,.viz,.addon-top,.contact,.reviews{grid-template-columns:1fr}
+ .spec{gap:var(--s5)}
+ .spec-intro{position:static}
+ .booker{grid-template-columns:1fr}
+ .bk-col+.bk-col{border-left:0;border-top:1px solid var(--honed)}
+ .proof .wrap{grid-template-columns:1fr 1fr}
+ .proof div.item{border-left:0;padding-left:0;border-bottom:1px solid var(--honed)}
+ .visit{grid-template-columns:1fr}
+ .visit>div+div{padding-left:0;border-left:0;border-top:1px solid var(--honed)}
+ .ft{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+ body{font-size:17px}
+ .wrap{padding:0 var(--s3)}
+ .hdr-call{display:none}
+ .sec{padding:var(--s7) 0}
+ .hero{padding:var(--s6) 0 var(--s5)}
+ .row{grid-template-columns:40px 1fr}
+ .swatch{grid-column:2;width:100%;height:40px}
+ .chips{grid-template-columns:1fr}
+ .days{grid-template-columns:repeat(5,1fr)}
+ .days button{font-size:.75rem}
+ .slots{grid-template-columns:repeat(3,1fr)}
+ .two{grid-template-columns:1fr}
+ .ft{grid-template-columns:1fr}
+ .bk-col,.formbox{padding:var(--s4)}
+ .quote{padding:var(--s7) var(--s4) var(--s4)}
+ .price small{display:block;margin-top:var(--s1)}
+ .qmark{left:var(--s4)}
+ .tag{display:none}
+ .mcall{display:flex;position:fixed;left:var(--s3);right:var(--s3);bottom:var(--s3);z-index:50;min-height:56px;background:var(--char);color:var(--bone);align-items:center;justify-content:center;gap:var(--s2);text-decoration:none;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+ footer{padding-bottom:110px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="concept">Website concept by <a href="https://www.lisettecolon.com">Lisette Colon</a>. A sample, not the official Granex Kitchen site.</div>
+
+<header class="site">
+ <div class="wrap hdr">
+  <a class="brand" href="#top" aria-label="Granex Kitchen home">
+   <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M2 8 L32 2 L38 8 L38 38 L8 38 L2 32Z" fill="#1f1e1c"/><path d="M8 14 L30 10" stroke="#b08d57" stroke-width="2"/><path d="M8 22 L30 18" stroke="#8a857c" stroke-width="1"/><path d="M8 30 L30 26" stroke="#8a857c" stroke-width="1"/></svg>
+   <span><b>GRANEX</b><small>Kitchen</small></span>
+  </a>
+  <nav class="main" id="nav" aria-label="Main">
+   <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#visualizer">Visualizer</a></li>
+    <li><a href="#book">Book a visit</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#visit">Showroom</a></li>
+   </ul>
+  </nav>
+  <a class="hdr-call" href="tel:+16314381470"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>(631) 438-1470</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span></button>
+ </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+ <div class="wrap hero-grid">
+  <div>
+   <p class="label">Patchogue showroom, Medford Ave</p>
+   <h1>Stone tops. Solid cabinets. <span class="thin">A price that feels fair.</span></h1>
+   <p class="lede">Granex Kitchen helps you pick the countertop, the cabinets and the plan for your kitchen or bath, all under one roof in Patchogue.</p>
+   <div class="actions">
+    <a class="btn btn-dark" href="#book">Book a design consultation</a>
+    <a class="btn btn-line" href="tel:+16314381470">Call (631) 438-1470</a>
+   </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+   <svg viewBox="0 0 560 515" preserveAspectRatio="xMidYMid slice">
+    <defs>
+     <pattern id="hgran" width="60" height="60" patternUnits="userSpaceOnUse" data-speck="granite-dark"><rect width="60" height="60" fill="#2a2826"/></pattern>
+     <pattern id="hquartz" width="60" height="60" patternUnits="userSpaceOnUse" data-speck="quartz"><rect width="60" height="60" fill="#ecebe7"/></pattern>
+     <pattern id="hmarble" width="280" height="300" patternUnits="userSpaceOnUse"><rect width="280" height="300" fill="#f3f1ed"/><path d="M-10 40 C60 70 90 30 150 90 S230 120 300 170" stroke="#bdb6aa" stroke-width="2" fill="none"/><path d="M-10 180 C40 160 100 220 170 200 S250 240 300 260" stroke="#cfc8bc" stroke-width="1.2" fill="none"/><path d="M90 0 C110 60 80 120 130 170" stroke="#a89f91" stroke-width=".8" fill="none"/></pattern>
+     <pattern id="hgold" width="60" height="60" patternUnits="userSpaceOnUse" data-speck="granite-gold"><rect width="60" height="60" fill="#c9ad86"/></pattern>
+     <linearGradient id="floor" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#cfc6b8"/><stop offset="1" stop-color="#bdb3a3"/></linearGradient>
+    </defs>
+    <rect width="560" height="515" fill="#e6e0d7"/>
+    <rect y="430" width="560" height="85" fill="url(#floor)"/>
+    <g stroke="#c2b8a8" stroke-width="1"><line x1="0" y1="455" x2="560" y2="455"/><line x1="0" y1="485" x2="560" y2="485"/></g>
+    <!-- A-frame rack -->
+    <path d="M260 70 L170 432 M260 70 L350 432" stroke="#1f1e1c" stroke-width="8"/>
+    <rect x="236" y="62" width="48" height="12" fill="#b08d57"/>
+    <!-- slabs leaning left -->
+    <g class="slab"><path d="M70 120 L232 96 L150 432 L20 432Z" fill="url(#hmarble)" stroke="#c9c1b4"/><path d="M232 96 L238 100 L156 432 L150 432Z" fill="#cdc6ba"/></g>
+    <g class="slab"><path d="M120 150 L246 130 L170 432 L66 432Z" fill="url(#hgran)"/><path d="M246 130 L252 134 L176 432 L170 432Z" fill="#111"/></g>
+    <!-- slabs leaning right -->
+    <g class="slab"><path d="M288 96 L470 128 L545 432 L370 432Z" fill="url(#hquartz)" stroke="#d6d2c9"/><path d="M288 96 L282 100 L364 432 L370 432Z" fill="#cfcac0"/></g>
+    <g class="slab"><path d="M276 140 L420 166 L478 432 L350 432Z" fill="url(#hgold)"/><path d="M276 140 L270 144 L344 432 L350 432Z" fill="#9b8462"/></g>
+    <!-- cabinet door sample -->
+    <g transform="translate(400 300)">
+     <rect width="120" height="132" fill="#5e3b26"/>
+     <rect x="14" y="14" width="92" height="104" fill="none" stroke="#7a5036" stroke-width="6"/>
+     <rect x="24" y="24" width="72" height="84" fill="#6a4430"/>
+     <rect x="96" y="46" width="5" height="40" rx="2" fill="#b08d57"/>
+    </g>
+    <ellipse cx="270" cy="438" rx="250" ry="6" fill="#000" opacity=".08"/>
+   </svg>
+   <span class="tag l" style="top:16%;right:6%">Quartz</span>
+   <span class="tag r" style="top:12%;left:4%">Marble-look</span>
+   <span class="tag r" style="bottom:10%;left:4%">Granite</span>
+   <span class="tag l" style="bottom:30%;right:4%">Walnut door</span>
+  </div>
+ </div>
+</section>
+
+<div class="proof">
+ <div class="wrap">
+  <div class="item"><strong>4.9</strong><span>Google rating</span><div class="stars" aria-label="4.9 out of 5 stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.7 6 6.3.6-4.8 4.2 1.4 6.2L10 15l-5.6 3 1.4-6.2L1 7.6 7.3 7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 6 6.3.6-4.8 4.2 1.4 6.2L10 15l-5.6 3 1.4-6.2L1 7.6 7.3 7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 6 6.3.6-4.8 4.2 1.4 6.2L10 15l-5.6 3 1.4-6.2L1 7.6 7.3 7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 6 6.3.6-4.8 4.2 1.4 6.2L10 15l-5.6 3 1.4-6.2L1 7.6 7.3 7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.7 6 6.3.6-4.8 4.2 1.4 6.2L10 15l-5.6 3 1.4-6.2L1 7.6 7.3 7z"/></svg></div></div>
+  <div class="item"><strong>41</strong><span>Google reviews</span></div>
+  <div class="item"><strong>615</strong><span>Medford Ave, Patchogue</span></div>
+  <div class="item"><strong>9 to 8</strong><span>Monday to Friday</span></div>
+ </div>
+</div>
+
+<section class="sec" id="services">
+ <div class="wrap spec">
+  <div class="spec-intro">
+   <p class="label">The spec sheet</p>
+   <h2>Six things we do, start to finish.</h2>
+   <p>Bring your measurements, a photo of your kitchen, or just an idea. The team will walk you through materials, layout and budget.</p>
+   <a class="btn btn-line" href="#contact">Request a quote</a>
+  </div>
+  <div class="rows">
+   <div class="row"><span class="no">01</span><div><h3>Countertops</h3><p>Granite, quartz and marble-look surfaces for kitchens, islands and vanities. See the colors in person before you choose.</p></div><span class="swatch" style="background:#2a2826" data-sw="granite-dark"></span></div>
+   <div class="row"><span class="no">02</span><div><h3>Cabinets</h3><p>Kitchen cabinet styles and finishes, from warm wood tones to painted doors, matched to your layout.</p></div><span class="swatch" style="background:#5e3b26"></span></div>
+   <div class="row"><span class="no">03</span><div><h3>Kitchen remodel</h3><p>Cabinets, counters and the details that tie them together, planned as one project.</p></div><span class="swatch" style="background:linear-gradient(90deg,#5e3b26 0 60%,#ecebe7 60%)"></span></div>
+   <div class="row"><span class="no">04</span><div><h3>Bathroom remodel</h3><p>Vanity, top and the finishing touches for a bath that feels new again.</p></div><span class="swatch" style="background:#d9d4cb"></span></div>
+   <div class="row"><span class="no">05</span><div><h3>Custom tables</h3><p>A stone top for your dining table, coffee table or outdoor piece, cut to the size you need.</p></div><span class="swatch" style="background:#c9ad86"></span></div>
+   <div class="row"><span class="no">06</span><div><h3>Financing</h3><p>Financing is available. Ask the showroom about options when you plan your project.</p></div><span class="swatch" style="background:#b08d57"></span></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec dark" id="visualizer">
+ <div class="wrap">
+  <div class="viz-head">
+   <div><p class="label">Try it here first</p><h2>Countertop and cabinet visualizer</h2></div>
+   <p>Pick a stone and a cabinet finish to see how they sit together. Then bring your favorite combo to the showroom to see the real samples.</p>
+  </div>
+  <div class="viz">
+   <div class="viz-stage">
+    <svg id="kitchen" viewBox="0 0 640 440" role="img" aria-labelledby="kt">
+     <title id="kt">Illustrated kitchen showing the selected countertop and cabinet finish</title>
+     <defs>
+      <pattern id="p-gdark" width="60" height="60" patternUnits="userSpaceOnUse" data-speck="granite-dark"><rect width="60" height="60" fill="#2a2826"/></pattern>
+      <pattern id="p-ggold" width="60" height="60" patternUnits="userSpaceOnUse" data-speck="granite-gold"><rect width="60" height="60" fill="#c9ad86"/></pattern>
+      <pattern id="p-qsnow" width="60" height="60" patternUnits="userSpaceOnUse" data-speck="quartz"><rect width="60" height="60" fill="#f1f0ec"/></pattern>
+      <pattern id="p-qconc" width="60" height="60" patternUnits="userSpaceOnUse" data-speck="quartz-gray"><rect width="60" height="60" fill="#a9a6a0"/></pattern>
+      <pattern id="p-mwhite" width="320" height="60" patternUnits="userSpaceOnUse"><rect width="320" height="60" fill="#f4f2ee"/><path d="M0 30 C60 10 90 50 160 26 S260 8 320 34" stroke="#b9b1a4" stroke-width="1.4" fill="none"/><path d="M40 60 C70 40 100 44 120 0" stroke="#cdc6ba" stroke-width=".8" fill="none"/><path d="M220 0 C240 30 270 40 300 60" stroke="#c3bbae" stroke-width=".8" fill="none"/></pattern>
+      <pattern id="p-mgray" width="320" height="60" patternUnits="userSpaceOnUse"><rect width="320" height="60" fill="#e4e2de"/><path d="M0 22 C70 46 110 6 170 30 S270 50 320 20" stroke="#6f6c67" stroke-width="1.4" fill="none"/><path d="M60 0 C80 30 120 40 140 60" stroke="#8d8a84" stroke-width=".8" fill="none"/><path d="M250 60 C260 30 290 20 310 0" stroke="#8d8a84" stroke-width=".8" fill="none"/></pattern>
+      <pattern id="tile" width="40" height="20" patternUnits="userSpaceOnUse"><rect width="40" height="20" fill="#efebe4"/><path d="M0 19.5h40M20 0v10M0 10h40M0 10v10M40 10v10" stroke="#d6cfc4" stroke-width="1"/></pattern>
+      <pattern id="plank" width="120" height="30" patternUnits="userSpaceOnUse"><rect width="120" height="30" fill="#8f7a64"/><path d="M0 29.5h120M80 0v15M0 15h120M30 15v15" stroke="#7c6855" stroke-width="1"/></pattern>
+     </defs>
+     <rect width="640" height="440" fill="#dcd5ca"/>
+     <!-- window -->
+     <rect x="250" y="40" width="140" height="110" fill="#b9c4c6"/><rect x="250" y="40" width="140" height="110" fill="none" stroke="#f4f1ec" stroke-width="8"/><line x1="320" y1="40" x2="320" y2="150" stroke="#f4f1ec" stroke-width="5"/>
+     <!-- uppers -->
+     <g class="cab">
+      <rect x="40" y="36" width="190" height="120"/><rect x="410" y="36" width="190" height="120"/>
+     </g>
+     <g fill="none" class="cabline" stroke-width="3">
+      <rect x="50" y="46" width="80" height="100"/><rect x="140" y="46" width="80" height="100"/>
+      <rect x="420" y="46" width="80" height="100"/><rect x="510" y="46" width="80" height="100"/>
+     </g>
+     <g fill="#b08d57"><rect x="124" y="120" width="3" height="20"/><rect x="143" y="120" width="3" height="20"/><rect x="494" y="120" width="3" height="20"/><rect x="513" y="120" width="3" height="20"/></g>
+     <!-- backsplash -->
+     <rect x="40" y="156" width="560" height="74" fill="url(#tile)"/>
+     <!-- counter -->
+     <rect class="top" x="32" y="230" width="576" height="16" fill="url(#p-gdark)"/>
+     <rect x="32" y="246" width="576" height="3" fill="#000" opacity=".15"/>
+     <!-- faucet -->
+     <path d="M318 230 V200 a14 14 0 0 1 28 0 v8" fill="none" stroke="#b08d57" stroke-width="4"/>
+     <!-- lowers -->
+     <rect class="cab" x="40" y="249" width="560" height="121"/>
+     <g fill="none" class="cabline" stroke-width="3">
+      <rect x="50" y="258" width="120" height="30"/><rect x="50" y="296" width="120" height="64"/>
+      <rect x="180" y="258" width="130" height="102"/><rect x="330" y="258" width="130" height="102"/>
+      <rect x="470" y="258" width="120" height="30"/><rect x="470" y="296" width="120" height="64"/>
+     </g>
+     <g fill="#b08d57"><rect x="94" y="271" width="32" height="3"/><rect x="94" y="304" width="32" height="3"/><rect x="514" y="271" width="32" height="3"/><rect x="514" y="304" width="32" height="3"/><rect x="298" y="270" width="3" height="24"/><rect x="339" y="270" width="3" height="24"/></g>
+     <rect x="40" y="370" width="560" height="10" fill="#2b2a27"/>
+     <rect y="380" width="640" height="60" fill="url(#plank)"/>
+     <!-- island front -->
+     <rect class="top" x="150" y="330" width="340" height="14" fill="url(#p-gdark)"/>
+     <rect x="150" y="344" width="340" height="3" fill="#000" opacity=".2"/>
+     <rect class="cab" x="162" y="347" width="316" height="85"/>
+     <g fill="none" class="cabline" stroke-width="3"><rect x="172" y="356" width="140" height="68"/><rect x="328" y="356" width="140" height="68"/></g>
+     <g fill="#b08d57"><rect x="226" y="364" width="32" height="3"/><rect x="382" y="364" width="32" height="3"/></g>
+     <!-- pendants -->
+     <g stroke="#1f1e1c" stroke-width="1.5"><line x1="290" y1="0" x2="290" y2="96"/><line x1="350" y1="0" x2="350" y2="96"/></g><g fill="#b08d57"><path d="M276 112 L280 96 L300 96 L304 112Z"/><path d="M336 112 L340 96 L360 96 L364 112Z"/></g><g fill="#fff6dc" opacity=".9"><ellipse cx="290" cy="113" rx="12" ry="2.5"/><ellipse cx="350" cy="113" rx="12" ry="2.5"/></g>
+    </svg>
+    <div class="viz-read" aria-live="polite"><span>Countertop: <b id="r-top">Granite, deep black</b></span><span>Cabinets: <b id="r-cab">Natural walnut</b></span></div>
+   </div>
+   <form id="vizform" onsubmit="return false">
+    <fieldset>
+     <legend>Countertop</legend>
+     <div class="chips">
+      <div class="chip"><input type="radio" name="top" id="t1" value="p-gdark" data-n="Granite, deep black" checked><label for="t1"><span class="dot" style="background:#2a2826"></span><span>Granite<small>Deep black</small></span></label></div>
+      <div class="chip"><input type="radio" name="top" id="t2" value="p-ggold" data-n="Granite, golden speckle"><label for="t2"><span class="dot" style="background:#c9ad86"></span><span>Granite<small>Golden speckle</small></span></label></div>
+      <div class="chip"><input type="radio" name="top" id="t3" value="p-qsnow" data-n="Quartz, snow white"><label for="t3"><span class="dot" style="background:#f1f0ec"></span><span>Quartz<small>Snow white</small></span></label></div>
+      <div class="chip"><input type="radio" name="top" id="t4" value="p-qconc" data-n="Quartz, concrete gray"><label for="t4"><span class="dot" style="background:#a9a6a0"></span><span>Quartz<small>Concrete gray</small></span></label></div>
+      <div class="chip"><input type="radio" name="top" id="t5" value="p-mwhite" data-n="Marble-look, soft vein"><label for="t5"><span class="dot" style="background:#f4f2ee"></span><span>Marble-look<small>Soft vein</small></span></label></div>
+      <div class="chip"><input type="radio" name="top" id="t6" value="p-mgray" data-n="Marble-look, bold gray vein"><label for="t6"><span class="dot" style="background:#e4e2de;box-shadow:inset 0 -8px 0 #6f6c67"></span><span>Marble-look<small>Bold gray vein</small></span></label></div>
+     </div>
+    </fieldset>
+    <fieldset>
+     <legend>Cabinet finish</legend>
+     <div class="chips">
+      <div class="chip"><input type="radio" name="cab" id="c1" value="#5e3b26|#7a5036" data-n="Natural walnut" checked><label for="c1"><span class="dot" style="background:#5e3b26"></span>Natural walnut</label></div>
+      <div class="chip"><input type="radio" name="cab" id="c2" value="#f2efe9|#d9d3c9" data-n="Painted white"><label for="c2"><span class="dot" style="background:#f2efe9"></span>Painted white</label></div>
+      <div class="chip"><input type="radio" name="cab" id="c3" value="#2d2c2a|#454340" data-n="Deep charcoal"><label for="c3"><span class="dot" style="background:#2d2c2a"></span>Deep charcoal</label></div>
+      <div class="chip"><input type="radio" name="cab" id="c4" value="#8e958a|#a5ab9f" data-n="Sage gray"><label for="c4"><span class="dot" style="background:#8e958a"></span>Sage gray</label></div>
+     </div>
+    </fieldset>
+    <a class="btn btn-brass viz-cta" href="#book" id="bring">Bring this combo to a consultation</a>
+    <p class="sample-note">Sample tool. Colors are illustrations, not real product photos. Stone varies slab to slab, so always see it in person.</p>
+   </form>
+  </div>
+ </div>
+</section>
+
+<section class="sec addon" id="book">
+ <div class="wrap">
+  <div class="addon-top">
+   <div>
+    <span class="flag">Featured add-on in this concept</span>
+    <h2>Book a showroom design consultation online.</h2>
+   </div>
+   <div>
+    <p class="price">From $400 <small>to add this feature to the Granex website</small></p>
+    <ul class="incl">
+     <li>Weekday calendar that follows the showroom's real hours</li>
+     <li>Project type, preferred time and the visualizer combo in one request</li>
+     <li>Confirmation screen and email notice to the showroom</li>
+    </ul>
+   </div>
+  </div>
+  <div class="booker">
+   <div class="bk-col">
+    <p class="step-t"><i>1</i> Pick a weekday</p>
+    <div class="days" id="days" role="group" aria-label="Choose a day"></div>
+    <p class="step-t"><i>2</i> Pick a time</p>
+    <div class="slots" id="slots" role="group" aria-label="Choose a time"></div>
+    <p class="picked" id="picked" aria-live="polite">No time picked yet.</p>
+   </div>
+   <div class="bk-col">
+    <form class="demo" id="bookform" novalidate>
+     <p class="step-t"><i>3</i> Tell us about the project</p>
+     <div class="field"><label for="b-type">Project</label><select id="b-type" required><option value="">Choose one</option><option>Countertops</option><option>Cabinets</option><option>Kitchen remodel</option><option>Bathroom remodel</option><option>Custom table</option></select><span class="errmsg">Please choose a project.</span></div>
+     <div class="two">
+      <div class="field"><label for="b-name">Name</label><input id="b-name" required autocomplete="name"><span class="errmsg">Please add your name.</span></div>
+      <div class="field"><label for="b-phone">Phone</label><input id="b-phone" type="tel" required autocomplete="tel"><span class="errmsg">Please add a phone number.</span></div>
+     </div>
+     <div class="field"><label for="b-note">Notes</label><textarea id="b-note" placeholder="Room size, timeline, colors you like"></textarea></div>
+     <input type="hidden" id="b-slot" required>
+     <p class="errmsg" id="slot-err" style="margin-bottom:var(--s3)">Please pick a day and time on the left.</p>
+     <button class="btn btn-dark" type="submit" style="width:100%">Request this appointment</button>
+     <p class="demo-note">Demo form. This is a website concept. Nothing is sent or saved.</p>
+    </form>
+    <div class="done" hidden tabindex="-1">
+     <h3>Demo complete.</h3>
+     <p>On the live site, this would send your appointment request to Granex Kitchen. In this concept, nothing was sent or saved.</p>
+     <button class="btn btn-line" type="button" data-reset>Start over</button>
+    </div>
+   </div>
+  </div>
+  <p class="sample-feat"><b>Sample feature.</b> The calendar, time slots and confirmation are simulated. No appointments are held or booked, and the time slots shown are examples within posted hours, not real availability.</p>
+ </div>
+</section>
+
+<section class="sec" id="reviews">
+ <div class="wrap">
+  <div class="rev-head"><div><p class="label">From Google reviews</p><h2>In their words.</h2></div><p style="margin:0;color:var(--muted)">4.9 stars from 41 reviews on Google.</p></div>
+  <div class="reviews">
+   <figure class="quote q1">
+    <svg class="qmark" viewBox="0 0 36 28" aria-hidden="true"><path d="M0 28V16C0 6 6 1 14 0v6c-4 1-7 4-7 9h7v13zM22 28V16c0-10 6-15 14-16v6c-4 1-7 4-7 9h7v13z" fill="#b08d57"/></svg>
+    <blockquote>"Great price and service."</blockquote>
+    <figcaption>Google review</figcaption>
+   </figure>
+   <figure class="quote q2">
+    <svg class="qmark" viewBox="0 0 36 28" aria-hidden="true"><path d="M0 28V16C0 6 6 1 14 0v6c-4 1-7 4-7 9h7v13zM22 28V16c0-10 6-15 14-16v6c-4 1-7 4-7 9h7v13z" fill="#7a5c2c"/></svg>
+    <blockquote>"This place was extremely helpful &amp; the pricing was more than fair."</blockquote>
+    <figcaption style="color:var(--muted)">Google review</figcaption>
+   </figure>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="visit" style="padding-top:0;padding-bottom:var(--s7)">
+ <div class="wrap">
+  <p class="label">Visit the showroom</p>
+  <div class="visit">
+   <div><h3>Address</h3><p>615 Medford Ave<br>Patchogue, NY 11772</p><p><a href="https://maps.google.com/?q=615+Medford+Ave+Patchogue+NY+11772">Get directions</a></p></div>
+   <div><h3>Hours</h3><table class="hours"><tr><td>Monday to Friday</td><td>9 AM to 8 PM</td></tr><tr><td>Saturday and Sunday</td><td>Call to confirm</td></tr></table></div>
+   <div><h3>Reach us</h3><p><a href="tel:+16314381470">(631) 438-1470</a><br><a href="mailto:sales@granexkitchen.com">sales@granexkitchen.com</a></p></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="contact" style="background:var(--stone)">
+ <div class="wrap contact">
+  <div class="intro">
+   <p class="label">Request a quote</p>
+   <h2>Tell us about your kitchen.</h2>
+   <p>Share the room, the rough size and what you are thinking. Someone from the showroom will follow up with next steps and pricing.</p>
+  </div>
+  <div class="formbox">
+   <form class="demo" novalidate>
+    <div class="two">
+     <div class="field"><label for="q-name">Name</label><input id="q-name" required autocomplete="name"><span class="errmsg">Please add your name.</span></div>
+     <div class="field"><label for="q-phone">Phone</label><input id="q-phone" type="tel" required autocomplete="tel"><span class="errmsg">Please add a phone number.</span></div>
+    </div>
+    <div class="field"><label for="q-email">Email</label><input id="q-email" type="email" autocomplete="email"><span class="errmsg">Please check the email address.</span></div>
+    <div class="field"><label for="q-what">What do you need?</label><select id="q-what" required><option value="">Choose one</option><option>Countertops</option><option>Cabinets</option><option>Kitchen remodel</option><option>Bathroom remodel</option><option>Custom table</option><option>Financing question</option></select><span class="errmsg">Please choose one.</span></div>
+    <div class="field"><label for="q-msg">Details</label><textarea id="q-msg" required placeholder="For example: L-shaped kitchen, about 30 feet of counter, looking at white quartz"></textarea><span class="errmsg">Please add a few details.</span></div>
+    <button class="btn btn-dark" type="submit">Send my request</button>
+    <p class="demo-note">Demo form. This is a website concept. Nothing is sent or saved.</p>
+   </form>
+   <div class="done" hidden tabindex="-1">
+    <h3>Demo complete.</h3>
+    <p>On the live site, this would go to the Granex Kitchen team. In this concept, nothing was sent or saved.</p>
+    <button class="btn btn-line" type="button" data-reset>Start over</button>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="ft">
+   <div><a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M2 8 L32 2 L38 8 L38 38 L8 38 L2 32Z" fill="#f4f1ec"/><path d="M8 14 L30 10" stroke="#b08d57" stroke-width="2"/></svg><span><b>GRANEX</b><small>Kitchen</small></span></a><p style="margin-top:var(--s3)">Countertops, cabinets and remodels in Patchogue.</p></div>
+   <div><p><b style="color:#fff">Showroom</b><br>615 Medford Ave<br>Patchogue, NY 11772</p><p>Mon to Fri, 9 AM to 8 PM</p></div>
+   <div><p><b style="color:#fff">Contact</b><br><a href="tel:+16314381470">(631) 438-1470</a><br><a href="mailto:sales@granexkitchen.com">sales@granexkitchen.com</a></p></div>
+  </div>
+  <p class="disc">Independent website concept designed by Lisette Colon. Not affiliated with or approved by Granex Kitchen. Address, hours, rating and review quotes are from the business's public Google listing, checked October 2026. The service list and email come from the business's own website; service descriptions are written for this concept and should be confirmed with the owner. All illustrations, the visualizer colors and the online booking feature are samples created for this concept. Weekend hours are not listed and should be confirmed.</p>
+ </div>
+</footer>
+<a class="mcall" href="tel:+16314381470"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Call Granex Kitchen</a>
+
+<script>
+(function(){
+ // menu
+ var mb=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+ mb.addEventListener('click',function(){var o=mb.getAttribute('aria-expanded')==='true';mb.setAttribute('aria-expanded',!o);mb.setAttribute('aria-label',o?'Open menu':'Close menu');nav.classList.toggle('open',!o)});
+ nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mb.setAttribute('aria-expanded','false');nav.classList.remove('open')})});
+
+ // speckle patterns (seeded so they look the same each load)
+ var seed=7;function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646}
+ var palettes={'granite-dark':['#4b4844','#6b655c','#1a1918','#8c857a','#3a3734'],'granite-gold':['#8a6f4c','#e8dcc7','#5b4b39','#a88f6b','#f3ead9'],'quartz':['#d9d6cf','#c8c4bb','#ffffff'],'quartz-gray':['#8f8c86','#c2bfb8','#7a7772']};
+ document.querySelectorAll('[data-speck]').forEach(function(p){
+  var cols=palettes[p.getAttribute('data-speck')],n=p.getAttribute('data-speck').indexOf('granite')===0?46:26;
+  for(var i=0;i<n;i++){var c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',(rnd()*60).toFixed(1));c.setAttribute('cy',(rnd()*60).toFixed(1));c.setAttribute('r',(rnd()*(n>30?2.4:1.2)+.4).toFixed(1));c.setAttribute('fill',cols[Math.floor(rnd()*cols.length)]);c.setAttribute('opacity',(.55+rnd()*.45).toFixed(2));p.appendChild(c)}
+ });
+
+ // visualizer
+ var kit=document.getElementById('kitchen');
+ function paint(){
+  var t=document.querySelector('input[name=top]:checked'),c=document.querySelector('input[name=cab]:checked');
+  var cv=c.value.split('|');
+  kit.querySelectorAll('.top').forEach(function(r){r.setAttribute('fill','url(#'+t.value+')')});
+  kit.querySelectorAll('.cab').forEach(function(r){r.setAttribute('fill',cv[0]);r.querySelectorAll&&r.querySelectorAll('rect').forEach(function(x){x.setAttribute('fill',cv[0])})});
+  kit.querySelectorAll('.cabline').forEach(function(g){g.setAttribute('stroke',cv[1])});
+  document.getElementById('r-top').textContent=t.dataset.n;document.getElementById('r-cab').textContent=c.dataset.n;
+ }
+ document.getElementById('vizform').addEventListener('change',paint);paint();
+ document.getElementById('bring').addEventListener('click',function(){
+  var t=document.querySelector('input[name=top]:checked').dataset.n,c=document.querySelector('input[name=cab]:checked').dataset.n;
+  document.getElementById('b-note').value='Visualizer combo: '+t+' countertop with '+c+' cabinets.';
+ });
+
+ // booking calendar: next 10 weekdays, Mon to Fri 9 to 8
+ var days=document.getElementById('days'),slots=document.getElementById('slots'),picked=document.getElementById('picked'),hid=document.getElementById('b-slot');
+ var dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],mn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+ var d=new Date(),list=[];d.setDate(d.getDate()+1);
+ while(list.length<10){if(d.getDay()>0&&d.getDay()<6)list.push(new Date(d));d.setDate(d.getDate()+1)}
+ var selDay=null,selTime=null;
+ list.forEach(function(x,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','false');b.innerHTML=dn[x.getDay()]+'<b>'+x.getDate()+'</b>'+mn[x.getMonth()];b.setAttribute('aria-label',dn[x.getDay()]+' '+mn[x.getMonth()]+' '+x.getDate());b.onclick=function(){days.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');selDay=x;selTime=null;drawSlots(i);upd()};days.appendChild(b)});
+ var times=['9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM','6:00 PM','7:00 PM'];
+ function drawSlots(k){slots.innerHTML='';times.forEach(function(t,j){var b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-pressed','false');if(k!==undefined&&((j*3+k)%5===0)){b.disabled=true;b.setAttribute('aria-label',t+' taken in this demo')}b.onclick=function(){slots.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');selTime=t;upd()};slots.appendChild(b)})}
+ drawSlots();
+ function upd(){if(selDay&&selTime){picked.textContent='Picked: '+dn[selDay.getDay()]+', '+mn[selDay.getMonth()]+' '+selDay.getDate()+' at '+selTime+'.';hid.value='1';document.getElementById('slot-err').style.display='none'}else if(selDay){picked.textContent='Now pick a time for '+dn[selDay.getDay()]+', '+mn[selDay.getMonth()]+' '+selDay.getDate()+'.';hid.value=''}else{picked.textContent='No time picked yet.';hid.value=''}}
+
+ // demo forms
+ document.querySelectorAll('form.demo').forEach(function(f){
+  var box=f.parentElement,done=box.querySelector('.done');
+  f.addEventListener('submit',function(e){
+   e.preventDefault();var ok=true,first=null;
+   f.querySelectorAll('[required]').forEach(function(el){
+    if(el.type==='hidden'){if(!el.value){ok=false;document.getElementById('slot-err').style.display='block'}return}
+    var fld=el.closest('.field'),bad=!el.value.trim()||!el.checkValidity();
+    if(fld)fld.classList.toggle('err',bad);el.setAttribute('aria-invalid',bad);if(bad){ok=false;first=first||el}
+   });
+   f.querySelectorAll('input[type=email]').forEach(function(el){if(el.value&&!el.checkValidity()){ok=false;el.closest('.field').classList.add('err');first=first||el}});
+   if(!ok){if(first)first.focus();return}
+   f.hidden=true;done.hidden=false;done.focus();
+  });
+  done.querySelector('[data-reset]').addEventListener('click',function(){f.reset();f.querySelectorAll('.err').forEach(function(x){x.classList.remove('err')});if(f.id==='bookform'){selDay=null;selTime=null;days.querySelectorAll('button').forEach(function(y){y.setAttribute('aria-pressed','false')});drawSlots();upd()}done.hidden=true;f.hidden=false;f.querySelector('input,select').focus()});
+ });
+})();
+</script>
+</body>
+</html>
